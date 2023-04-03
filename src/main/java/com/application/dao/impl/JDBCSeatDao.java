@@ -20,6 +20,12 @@ public class JDBCSeatDao implements SeatDao {
     public void setConnection(Connection connection){
         this.connection = connection;
     }
+    public JDBCSeatDao(){
+
+    }
+    public JDBCSeatDao(Connection connection){
+        this.connection = connection;
+    }
     @Override
     public Seat get(long id) {
         try(PreparedStatement getSeatById = connection.prepareStatement(GET_SEAT_BY_ID)){

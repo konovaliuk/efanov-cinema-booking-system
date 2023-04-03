@@ -23,6 +23,12 @@ public class JDBCReservationDao implements ReservationDao {
     private final String DELETE_RESERVATION = "delete from reservation where reservation_id = ?";
     private static final Logger LOGGER = LogManager.getLogger(JDBCReservationDao.class);
     private Connection connection;
+    public JDBCReservationDao(){
+
+    }
+    public JDBCReservationDao(Connection connection){
+        this.connection = connection;
+    }
     public void setConnection(Connection connection){
         this.connection = connection;
     }

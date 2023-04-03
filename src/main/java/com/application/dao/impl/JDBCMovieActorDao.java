@@ -18,6 +18,12 @@ public class JDBCMovieActorDao implements MovieActorDao {
 
     private static final Logger LOGGER = LogManager.getLogger(JDBCMovieActorDao.class);
     private Connection connection;
+    public JDBCMovieActorDao(){
+
+    }
+    public JDBCMovieActorDao(Connection connection){
+        this.connection = connection;
+    }
     public void setConnection(Connection connection){
         this.connection = connection;
     }

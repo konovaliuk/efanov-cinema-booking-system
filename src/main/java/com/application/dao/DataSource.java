@@ -4,16 +4,26 @@ import com.application.model.User;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DataSource {
-    private static final HikariConfig config;
-    private final static HikariDataSource dataSource;
-
+    private static HikariDataSource dataSource;
     static {
-        config = new HikariConfig("src/main/resources/hikari.properties");
-        dataSource = new HikariDataSource(config);
+        try{
+            initDataSource();
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void initDataSource() throws NamingException {
+        Context initContext = new InitialContext();
+        Context envContext  = (Context)initContext.lookup("java:/comp/env");
+        dataSource = (HikariDataSource)envContext.lookup("jdbc/myDs");
     }
 
     public static Connection getConnection()  throws SQLException {

@@ -22,6 +22,12 @@ public class JDBCUserDao implements UserDao {
 
     private static final Logger LOGGER = LogManager.getLogger(JDBCUserDao.class);
     private Connection connection;
+    public JDBCUserDao(){
+
+    }
+    public JDBCUserDao(Connection connection){
+        this.connection = connection;
+    }
     public void setConnection(Connection connection){
         this.connection = connection;
     }
@@ -68,7 +74,7 @@ public class JDBCUserDao implements UserDao {
     @Override
     public void save(User user) {
         String password = user.getPassword();
-        String hashedPassword = PasswordEncoder.encodePassword(password);
+        String hashedPassword = PasswordEncoder.encodePassword(user.getEmail(), password);
         user.setPassword(hashedPassword);
         try(PreparedStatement saveUser = connection.prepareStatement(SAVE_USER)){
             saveUser.setString(1, user.getEmail());

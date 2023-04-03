@@ -22,6 +22,12 @@ public class JDBCScreeningDao implements ScreeningDao {
     public void setConnection(Connection connection){
         this.connection = connection;
     }
+    public JDBCScreeningDao(){
+
+    }
+    public JDBCScreeningDao(Connection connection){
+        this.connection = connection;
+    }
     @Override
     public Screening get(long id) {
         try(PreparedStatement getScreening = connection.prepareStatement(GET_SCREENING_BY_ID)){

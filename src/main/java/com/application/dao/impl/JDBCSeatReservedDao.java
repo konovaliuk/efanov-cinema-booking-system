@@ -28,6 +28,13 @@ public class JDBCSeatReservedDao implements SeatReservedDao {
             "where sc.screening_id = ? and r.reserved = true and ul.user_id = ?" ;
     private static final Logger LOGGER = LogManager.getLogger(JDBCSeatReservedDao.class);
     private Connection connection;
+
+    public JDBCSeatReservedDao(){
+
+    }
+    public JDBCSeatReservedDao(Connection connection){
+        this.connection = connection;
+    }
     public void setConnection(Connection connection){
         this.connection = connection;
     }

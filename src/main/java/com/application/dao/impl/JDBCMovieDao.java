@@ -23,6 +23,12 @@ public class JDBCMovieDao implements MovieDao {
     private final String GET_FILMS_BY_DIRECTOR = "select * from movie where director = ?";
     private static final Logger LOGGER = LogManager.getLogger(JDBCMovieDao.class);
     private Connection connection;
+    public JDBCMovieDao(){
+
+    }
+    public JDBCMovieDao(Connection connection){
+        this.connection = connection;
+    }
     public void setConnection(Connection connection){
         this.connection = connection;
     }

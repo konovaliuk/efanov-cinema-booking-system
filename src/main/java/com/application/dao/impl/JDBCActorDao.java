@@ -20,6 +20,12 @@ public class JDBCActorDao implements ActorDao {
     private final String DELETE_ACTOR = "delete from actor_list where actor_id = ?";
     private static final Logger LOGGER = LogManager.getLogger(JDBCActorDao.class);
     private Connection connection;
+    public JDBCActorDao(){
+
+    }
+    public JDBCActorDao(Connection connection){
+        this.connection = connection;
+    }
     public void setConnection(Connection connection){
         this.connection = connection;
     }
