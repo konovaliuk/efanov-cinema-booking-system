@@ -41,7 +41,7 @@ public class JDBCActorDao implements ActorDao {
                 String director = actorFilms.getString(3);
                 String description = actorFilms.getString(4);
                 int durationMin = actorFilms.getInt(5);
-                films.add(new Movie(movieId, title, director, description, durationMin));
+                //films.add(new Movie(movieId, title, director, description, durationMin));
             }
             return films;
         } catch (SQLException e) {
@@ -59,7 +59,7 @@ public class JDBCActorDao implements ActorDao {
                 String firstName = movie.getString(2);
                 String lastName = movie.getString(3);
                 String role = movie.getString(4);
-                return new Actor(id, firstName, lastName, role);
+                //return new Actor(id, firstName, lastName, role);
             }
             return null;
         } catch (SQLException e) {
@@ -78,7 +78,7 @@ public class JDBCActorDao implements ActorDao {
                 String firstName = actorsSet.getString(2);
                 String lastName = actorsSet.getString(3);
                 String role = actorsSet.getString(4);
-                actors.add(new Actor(actorId, firstName, lastName, role));
+                //actors.add(new Actor(actorId, firstName, lastName, role));
             }
             return actors;
         } catch (SQLException e) {

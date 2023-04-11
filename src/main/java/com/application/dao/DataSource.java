@@ -1,7 +1,5 @@
 package com.application.dao;
 
-import com.application.model.User;
-import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import javax.naming.Context;

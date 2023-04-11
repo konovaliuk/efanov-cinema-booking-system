@@ -43,7 +43,7 @@ public class JDBCMovieDao implements MovieDao {
                 String director = movie.getString(3);
                 String description = movie.getString(4);
                 int duration_min = movie.getInt(5);
-                return new Movie(id, title, director, description, duration_min);
+                //return new Movie(id, title, director, description, duration_min);
             }
             return null;
         } catch (SQLException e) {
@@ -126,7 +126,7 @@ public class JDBCMovieDao implements MovieDao {
             String director = moviesSet.getString(3);
             String description = moviesSet.getString(4);
             int duration_min = moviesSet.getInt(5);
-            movies.add(new Movie(movieId, title, director, description, duration_min));
+            //movies.add(new Movie(movieId, title, director, description, duration_min));
         }
         return movies;
     }
@@ -142,7 +142,7 @@ public class JDBCMovieDao implements MovieDao {
                 String firstName = filmActors.getString(2);
                 String lastName = filmActors.getString(3);
                 String role = filmActors.getString(4);
-                actors.add(new Actor(actorId, firstName, lastName, role));
+                //actors.add(new Actor(actorId, firstName, lastName, role));
             }
             return actors;
         } catch (SQLException e) {

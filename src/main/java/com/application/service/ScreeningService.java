@@ -1,6 +1,5 @@
 package com.application.service;
 
-import com.application.dao.DaoFactory;
 import com.application.dao.DataSource;
 import com.application.dao.ScreeningDao;
 import com.application.dao.impl.JDBCDaoFactory;
